@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct FirebaseStarterApp: App {
+    @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthView()
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        // Configure Firebase with project
+        FirebaseApp.configure()
+        return true
     }
 }
